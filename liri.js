@@ -51,28 +51,52 @@ function showConcerts() {
 }
 
 function showSong() {
-    console.log("song:", input)
-     var query="https://api.spotify.com/v1/search?q=" + input;
-
-     var client_id = '79decb18b0504a80aad367d05ac85256'
-     var client_secret = '561dc3e9ff9344259415b1c9805ee6bc'
-     var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
-     var scopes = \'user-read-private user-read-email\
     
-    console.log(query)
-    axios.get(query).then(function (response) {
+ 
+var spotify = new Spotify({
+  id: keys.spotify.id,
+  secret: keys.spotify.secret
+});
+ 
+spotify.search({ type: 'track', query: input }, function(err, data) {
+  if (err) {
+    return console.log('Error occurred: ' + err);
+  }
+ 
 
-        //console.log(response.data)
-        var items = response.data
-        for (var i = 0; i < items.length; i++) {
+// console.log(data.tracks.items);
+for (var i=0; i<data.tracks.items.length;i++){
+
+
+console.log(data.tracks.items[i].album.name);
+console.log(data.tracks.items[i].name);
+console.log(data.tracks.items[i].preview_url);
+console.log(data.tracks.items[i].artists[0].name);
+console.log("...")
+}
+});
+    // console.log("song:", input)
+    //  var query="https://api.spotify.com/v1/search?q=" + input;
+
+    //  var client_id = ''
+    //  var client_secret = ''
+    //  var redirect_uri = 'REDIRECT_URI'; // Your redirect uri
+    //  var scopes = \'user-read-private user-read-email\
+    
+    // console.log(query)
+    // axios.get(query).then(function (response) {
+
+    //     //console.log(response.data)
+    //     var items = response.data
+    //     for (var i = 0; i < items.length; i++) {
                   
-            // console.log("Venue:" + items[i].venue.name + " - Location: " + items[i].venue.city + " - Date: " + items[i].datetime)
+    //         // console.log("Venue:" + items[i].venue.name + " - Location: " + items[i].venue.city + " - Date: " + items[i].datetime)
 
-              console.log(items[i])
+    //           console.log(items[i])
 
 
-        }
-    })
+    //     }
+    // })
 
 }
 
@@ -126,9 +150,6 @@ function showMovie() {
     console.log(items.Actors)
     })
 }
-
-
-
 
 
 function doWhat() {
