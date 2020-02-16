@@ -1,5 +1,6 @@
 require("dotenv").config();
 var axios = require("axios")
+var fs = require("fs")
 var Spotify = require("node-spotify-api")
 var keys = require("./keys.js");
 
@@ -154,7 +155,14 @@ function showMovie() {
 
 function doWhat() {
 
-    console.log("do:", topic)
+
+    fs.readFile('random.txt', 'utf8',function(err, data){
+    
+        command = data.split(",")[0]
+        input = data.split(",")[1]
+        console.log(command,input)
+        menu(command)
+    })
 
 }
 
