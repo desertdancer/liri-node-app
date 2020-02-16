@@ -118,12 +118,12 @@ console.log("...")
 
 
 
-
-
-
-
 function showMovie() {
     console.log("movie:", input)
+    if (!input){
+        input = "Mr. Nobody"
+        console.log("you need to see Mr. Nobody")
+    }
     var query = "hhtp://www.omdbapi.com/?t=" + input + "&type=movie&apikey=trilogy"
     console.log(query)
 
