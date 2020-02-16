@@ -3,7 +3,7 @@ LIRI is node aplication based on commands that offers info about concerts, movie
 
 ### This is an example:
 <p>
-<img src="Capture.PNG" width="350px">
+<img src="Capture.PNG" width="600px">
 </p>
 
 ### API,s used:
